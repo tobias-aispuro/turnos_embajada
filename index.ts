@@ -26,13 +26,13 @@ import * as dotenv from 'dotenv';
           Messages: [
             {
               From: {
-                Email: "tobiasaispuro10@gmail.com",
-                Name: "Tobias Aispuro"
+                Email: "",
+                Name: ""
               },
               To: [
                 {
-                  Email: "tobiasaispuro10@gmail.com",
-                  Name: "Tobias Aispuro"
+                  Email: "",
+                  Name: ""
                 }
               ],
               Subject: "Hay turnos disponibles en la embajada!",
