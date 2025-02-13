@@ -13,11 +13,10 @@ import * as dotenv from 'dotenv';
     return  title ;
   });
 
-  if (lastNew.includes("Reconstrucción")) {
+  if (lastNew.includes("servicio")) {
     console.log('Se encontraron turnos disponibles')
 
-    const sendEmail = async () => {
-      const response = await fetch('https://api.mailjet.com/v3.1/send', {
+    await fetch('https://api.mailjet.com/v3.1/send', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -27,27 +26,23 @@ import * as dotenv from 'dotenv';
           Messages: [
             {
               From: {
-                Email: process.env.SENDER_EMAIL,
-                Name: "Me"
+                Email: "tobiasaispuro10@gmail.com",
+                Name: "Tobias Aispuro"
               },
               To: [
                 {
-                  Email: process.env.RECIPIENT_EMAIL,
-                  Name: "You"
+                  Email: "tobiasaispuro10@gmail.com",
+                  Name: "Tobias Aispuro"
                 }
               ],
-              Subject: "My first Mailjet Email!",
-              TextPart: "Greetings from Mailjet!",
-              HTMLPart: "<h3>Dear passenger 1, welcome to <a href=\"https://www.mailjet.com/\">Mailjet</a>!</h3><br />May the delivery force be with you!"
+              Subject: "Hay turnos disponibles en la embajada!",
+              TextPart: "Esta habilitado la reservacion de turnos por reconstrucción",
+              HTMLPart: "<h3>Esta habilitado la reservacion de turnos por reconstrucción</h3><br />May the delivery force be with you!"
             }
           ]
         })
       });
-    
-      const data = await response.json();
-      console.log(data);
     };
-  }
  
   console.log(await lastNew)
 
